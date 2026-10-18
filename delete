@@ -1,0 +1,16 @@
+<?php
+
+require 'dbconfig.php';
+
+$sql = "DELETE FROM products WHERE id = :id";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute([':id' => 101]);
+
+if ($stmt->rowCount() > 0) {
+    echo "Product deleted successfully!";
+} else {
+    echo "No product found with that ID.";
+}
+?>
