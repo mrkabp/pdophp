@@ -1,0 +1,18 @@
+<?php
+require 'dbconfig.php';
+
+$sql = "INSERT INTO products (price, category, origin, quantity, item_name)
+        VALUES (:price, :category, :origin, :quantity, :item_name)";
+
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute([
+    ':price' => 5.99,
+    ':category' => 'Chocolate',
+    ':origin' => 'Germany',
+    ':quantity' => 50,
+    ':item_name' => 'Test German Chocolate'
+]);
+
+echo "<br>Product added successfully!";
+?>
