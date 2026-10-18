@@ -1,0 +1,13 @@
+<?php
+require 'dbconfig.php';
+
+$sql = "SELECT * FROM products";
+$stmt = $pdo->prepare($sql);
+$stmt->execute();
+
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+echo "<pre>";
+print_r($products);
+echo "</pre>";
+?>
