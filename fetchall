@@ -1,14 +1,13 @@
 <?php
 require 'dbconfig.php';
 
-$sql = "SELECT * FROM products WHERE id = :id";
+$sql = "SELECT * FROM products";
 $stmt = $pdo->prepare($sql);
+$stmt->execute();
 
-$stmt->execute([':id' => 1]);
-
-$product = $stmt->fetch(PDO::FETCH_ASSOC);
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 echo "<pre>";
-print_r($product);
+print_r($products);
 echo "</pre>";
 ?>
