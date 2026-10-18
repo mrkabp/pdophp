@@ -1,0 +1,10 @@
+<?php
+
+$conn = new PDO("mysql:host=localhost;dbname=german_products_db", "root", "");
+
+$sql = "UPDATE products SET price = 2.99, quantity = 150 WHERE id = 1";
+
+$conn->exec($sql);
+
+echo "Product updated successfully!";
+?>
